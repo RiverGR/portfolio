@@ -1,0 +1,183 @@
+/* ===============================
+   Reset
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   Base
+================================ */
+body {
+  font-family: "Nanum Pen Script", cursive;
+  background: #1f1f1f;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  letter-spacing: 0.03em;
+  line-height: 1.8;
+}
+
+/* ===============================
+   Portfolio Layout
+================================ */
+.portfolio {
+  width: 834px;
+  min-height: 1194px;
+  background: url("background.png") center / cover no-repeat;
+
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 56px;
+
+  padding: 64px 72px;
+}
+
+/* ===============================
+   Left Section
+================================ */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Photo Frame */
+.photo-frame {
+  aspect-ratio: 3 / 4;
+  background: url("GR.jpg") center / cover no-repeat;
+  border: 8px solid #fff;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  transform: rotate(-2deg);
+}
+
+/* ===============================
+   Torn Paper Card
+================================ */
+.paper-card {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: url("paper.png") center / 100% 100% no-repeat;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Safe area */
+.paper-safe {
+  width: 72%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.paper-safe h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.paper-safe ul {
+  padding-left: 16px;
+}
+
+.paper-safe li {
+  margin-bottom: 3px;
+}
+
+.paper-safe .cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 24px;
+}
+
+/* ===============================
+   Right Section
+================================ */
+.right {
+  color: #4a3b2c;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 24px; /* photo bottom alignment */
+}
+
+/* Header */
+header h1 {
+  font-size: 42px;
+  margin-bottom: 4px;
+}
+
+header .name {
+  font-size: 16px;
+}
+
+/* Content Blocks */
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.block h2 {
+  font-size: 22px;
+}
+
+.block p {
+  font-size: 14px;
+  line-height: 1.9;
+  max-width: 440px;
+}
+
+/* Footer */
+.contact {
+  margin-top: auto;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ===============================
+   Tablet (iPad Pro 11)
+================================ */
+@media (max-width: 1024px) {
+  .portfolio {
+    width: 100%;
+    grid-template-columns: 280px 1fr;
+    padding: 56px 48px;
+  }
+}
+
+/* ===============================
+   Mobile
+================================ */
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .portfolio {
+    grid-template-columns: 1fr;
+    padding: 32px 20px 48px;
+  }
+
+  .photo-frame {
+    width: 70%;
+    margin: 0 auto;
+    transform: rotate(-2deg);
+  }
+
+  .paper-card {
+    aspect-ratio: 2 / 3;
+  }
+
+  header h1,
+  header .name {
+    text-align: center;
+  }
+}
