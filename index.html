@@ -3,28 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Portfolio</title>
+
+    <!-- Font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="reset.css" />
 
-    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <main class="portfolio">
-      <!-- LEFT -->
+      <!-- ================= LEFT ================= -->
       <section class="left">
-        <div class="photo-frame"></div>
+        <!-- Photo -->
+        <div class="photo-frame" aria-label="profile image"></div>
 
         <!-- Torn Paper -->
         <div class="paper-card">
           <div class="paper-safe">
-            <section>
+            <section class="paper-section">
               <h3>Information</h3>
               <ul>
                 <li>VS Code</li>
@@ -34,7 +34,7 @@
               </ul>
             </section>
 
-            <section>
+            <section class="paper-section">
               <h3>Skills</h3>
               <ul class="cols">
                 <li>HTML5</li>
@@ -45,7 +45,7 @@
               </ul>
             </section>
 
-            <section>
+            <section class="paper-section">
               <h3>Tools</h3>
               <ul class="cols">
                 <li>VS Code</li>
@@ -58,13 +58,15 @@
         </div>
       </section>
 
-      <!-- RIGHT -->
+      <!-- ================= RIGHT ================= -->
       <section class="right">
-        <header>
+        <!-- Header -->
+        <header class="hero">
           <h1>Portfolio</h1>
           <p class="name">Lee Ga Ram</p>
         </header>
 
+        <!-- Education -->
         <section class="block">
           <h2>Education</h2>
           <p>
@@ -77,6 +79,7 @@
           </p>
         </section>
 
+        <!-- Strengths -->
         <section class="block">
           <h2>Strengths</h2>
           <p>
@@ -93,17 +96,16 @@
           </p>
         </section>
 
+        <!-- Mindset -->
         <section class="block">
           <h2>Mindset</h2>
           <p>개발은 항상 정확하게 가능하다면 신속하게 합니다.</p>
           <p>팀원과 의견을 조율하며 실수 없는 협업을 목표로 합니다.</p>
-          <p>
-            모든 사용자가 편리하게 사용할 수 있도록<br />
-            항상 고민합니다.
-          </p>
+          <p>모든 사용자가 편리하게 사용할 수 있도록 항상 고민합니다.</p>
           <p>꾸준한 학습으로 더 효율적인 방법을 찾습니다.</p>
         </section>
 
+        <!-- Contact -->
         <footer class="contact">
           <p>📞 010-1234-1234</p>
           <p>✉️ myfm5u@gmail.com</p>
