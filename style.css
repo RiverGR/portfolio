@@ -64,7 +64,7 @@ body::before {
   pointer-events: none;
 }
 
-/* 인물 사진 (프레임 안쪽) */
+/* 사진 (프레임 안쪽) */
 .photo-frame::after {
   content: "";
   position: absolute;
@@ -105,7 +105,7 @@ body::before {
   flex-direction: column;
   justify-content: center;
 
-  gap: clamp(10px, 1.8vh, 20px); /* 요소 수에 따라 간격 조절 */
+  gap: clamp(10px, 1.8vh, 20px);
   padding-bottom: 4px;
 }
 
@@ -162,7 +162,7 @@ header .name {
   font-size: 36px;
 }
 
-/* 텍스트 블록 공통 */
+/* 텍스트 블록 */
 .block {
   display: flex;
   flex-direction: column;
@@ -181,7 +181,7 @@ header .name {
   max-width: 520px;
 }
 
-/* 연락처 영역 */
+/* 연락처 */
 .contact {
   margin-top: auto;
   font-size: 28px;
