@@ -52,34 +52,37 @@ body::before {
   position: relative;
   aspect-ratio: 3 / 4;
   transform: rotate(-2deg);
+  background: url("polaroid.png") center / contain no-repeat;
 }
 
 /* 폴라로이드 프레임 */
-.photo-frame::before {
+/* .photo-frame::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("polaroid.png") center / contain no-repeat;
+  /* background: url("polaroid.png") center / contain no-repeat;
   z-index: 2;
   pointer-events: none;
-}
+} */
 
 /* 사진 (프레임 안쪽) */
 .photo-frame::after {
   content: "";
   position: absolute;
-  width: 350px;
-  height: 380px;
-  top: 6%;
-  left: 7%;
+  width: 333px;
+  height: 324px;
+  top: 85px;
+  left: 40px;
+  object-fit: cover;
   background: url("GR.jpg") center / cover no-repeat;
-  transform: rotate(-8deg);
+  transform: rotate(-8.1deg);
   z-index: 3;
 }
 
 /* 찢어진 종이 카드 컨테이너 */
 .paper-card {
-  width: 440px;
+  /* width: 440px;  */
+  width: 500px;
   min-height: 600px;
   position: relative;
 
@@ -93,7 +96,7 @@ body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("paper.png") center / 100% 100% no-repeat;
+  background: url("paper.png") center / 110% 110% no-repeat;
 }
 
 /* 종이 안쪽 텍스트 안전 영역 */
@@ -129,6 +132,7 @@ body::before {
   grid-template-columns: 1fr 1fr;
   column-gap: 32px;
   line-height: 1.25;
+  padding-left: 20px;
 }
 
 /* 첫 번째 섹션은 단일 컬럼 */
