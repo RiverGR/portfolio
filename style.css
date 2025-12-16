@@ -51,7 +51,7 @@ body::before {
 .photo-frame {
   position: relative;
   aspect-ratio: 3 / 4;
-  transform: rotate(-2deg); /* 자연스러운 기울기 */
+  transform: rotate(-2deg);
 }
 
 /* 인물 사진 (프레임 안쪽) */
@@ -79,7 +79,7 @@ body::before {
 /* 찢어진 종이 카드 컨테이너 */
 .paper-card {
   width: 440px;
-  min-height: 600px; /* 내용에 따라 세로 확장 */
+  min-height: 600px;
   position: relative;
 
   display: flex;
@@ -130,7 +130,7 @@ body::before {
   line-height: 1.25;
 }
 
-/* 첫 번째 섹션(Information)은 단일 컬럼 */
+/* 첫 번째 섹션은 단일 컬럼 */
 .paper-section:first-child ul {
   display: block;
 }
@@ -187,7 +187,7 @@ header .name {
   line-height: 1.8;
 }
 
-/* 태블릿 대응 */
+/* 태블릿 */
 @media (max-width: 900px) {
   .portfolio {
     grid-template-columns: 300px 1fr;
@@ -204,7 +204,7 @@ header .name {
   }
 }
 
-/* 모바일 대응 */
+/* 모바일 */
 @media (max-width: 480px) {
   .portfolio {
     display: flex;
@@ -220,7 +220,6 @@ header .name {
 
   .photo-frame {
     width: 72%;
-    transform: rotate(-1deg); /* 모바일에서는 기울기 완화 */
   }
 
   .paper-card {
