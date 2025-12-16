@@ -54,18 +54,6 @@ body::before {
   transform: rotate(-2deg);
 }
 
-/* 인물 사진 (프레임 안쪽) */
-.photo-frame::after {
-  content: "";
-  position: absolute;
-  top: 6%;
-  left: 7%;
-  right: 7%;
-  bottom: 22%;
-  background: url("GR.jpg") center / cover no-repeat;
-  z-index: 1;
-}
-
 /* 폴라로이드 프레임 */
 .photo-frame::before {
   content: "";
@@ -74,6 +62,19 @@ body::before {
   background: url("polaroid.png") center / contain no-repeat;
   z-index: 2;
   pointer-events: none;
+}
+
+/* 인물 사진 (프레임 안쪽) */
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 380px;
+  top: 6%;
+  left: 7%;
+  background: url("GR.jpg") center / cover no-repeat;
+  transform: rotate(-8deg);
+  z-index: 3;
 }
 
 /* 찢어진 종이 카드 컨테이너 */
