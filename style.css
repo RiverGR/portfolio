@@ -1,31 +1,22 @@
-/* ===============================
-   Reset
-================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===============================
-   Base
-================================ */
 body {
   font-family: "Nanum Brush Script", cursive;
   letter-spacing: 0.03em;
   line-height: 1.8;
   font-weight: 200;
-
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
   padding: 80px 0;
   background: #000;
 }
 
-/* 🔥 전체 배경 */
 body::before {
   content: "";
   position: fixed;
@@ -34,141 +25,111 @@ body::before {
   z-index: -1;
 }
 
-/* ===============================
-   Portfolio Layout
-================================ */
 .portfolio {
-  width: min(1100px, 92vw);
+  width: min(1400px, 92vw);
   min-height: 1194px;
-
   display: grid;
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 420px 1fr;
   gap: 56px;
-
   padding: 64px 72px;
-  position: relative;
 }
 
-/* ===============================
-   Left Section
-================================ */
 .left {
   display: flex;
   flex-direction: column;
   gap: 48px;
 }
 
-/* ===============================
-   Polaroid Photo (2 + 3번 이미지 결합)
-================================ */
 .photo-frame {
   position: relative;
-  width: 100%;
   aspect-ratio: 3 / 4;
   transform: rotate(-2deg);
 }
 
-/* 폴라로이드 프레임 (Image.png) */
-.photo-frame::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("Image.png") center / contain no-repeat;
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* 인물 사진 (GR.jpg) */
 .photo-frame::after {
   content: "";
   position: absolute;
-
-  /* 프레임 안쪽 위치 미세 조정 */
   top: 6%;
   left: 7%;
   right: 7%;
   bottom: 22%;
-
   background: url("GR.jpg") center / cover no-repeat;
   z-index: 1;
 }
 
-/* ===============================
-   Torn Paper Card (4번 이미지)
-================================ */
-.paper-card {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4;
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("polaroid.png") center / contain no-repeat;
+  z-index: 2;
+  pointer-events: none;
+}
 
+.paper-card {
+  width: 440px;
+  min-height: 600px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* 찢어진 종이 배경 */
 .paper-card::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url("paper.png") center / 100% 100% no-repeat;
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18));
-  z-index: 0;
 }
 
-/* 종이 안전 영역 */
 .paper-safe {
   position: relative;
-  z-index: 1;
-
-  width: 72%;
+  width: 80%;
   display: flex;
   flex-direction: column;
-  gap: 22px;
-
-  font-size: 16px;
-  line-height: 1.8;
-  padding: 12px 0;
-  color: #4a3b2c;
+  justify-content: center;
+  gap: clamp(10px, 1.8vh, 20px);
+  padding-bottom: 4px;
 }
 
-.paper-safe h3 {
-  color: #896557;
-  font-size: 38px;
-  margin-bottom: 6px;
+.paper-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.paper-safe ul {
-  padding-left: 26px;
+.paper-section h3 {
+  font-size: 34px;
+  line-height: 1.2;
+  color: #a07665;
 }
 
-.paper-safe li {
-  margin-bottom: 4px;
-  line-height: 1.6;
-}
-
-.paper-safe .cols {
+.paper-section ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 32px;
+  line-height: 1.25;
 }
 
-/* ===============================
-   Right Section
-================================ */
+.paper-section:first-child ul {
+  display: block;
+}
+
+.paper-section li {
+  font-size: 24px;
+  line-height: 1.4;
+}
+
 .right {
   display: flex;
   flex-direction: column;
   gap: 40px;
   padding-top: 24px;
-  color: #4a3b2c;
 }
 
-/* Header */
 header h1 {
   color: #896557;
   font-size: 70px;
-  margin-bottom: 4px;
   letter-spacing: 0.04em;
 }
 
@@ -176,7 +137,6 @@ header .name {
   font-size: 36px;
 }
 
-/* Content Blocks */
 .block {
   display: flex;
   flex-direction: column;
@@ -193,19 +153,14 @@ header .name {
   font-size: 28px;
   line-height: 2.1;
   max-width: 520px;
-  letter-spacing: 0.02em;
 }
 
-/* Footer */
 .contact {
   margin-top: auto;
   font-size: 28px;
   line-height: 1.8;
 }
 
-/* ===============================
-   Tablet
-================================ */
 @media (max-width: 900px) {
   .portfolio {
     grid-template-columns: 300px 1fr;
@@ -217,90 +172,52 @@ header .name {
     font-size: 60px;
   }
 
-  header .name {
-    font-size: 30px;
-  }
-
-  .block h2 {
-    font-size: 34px;
-  }
-
   .block p {
     font-size: 24px;
   }
-
-  .paper-safe {
-    font-size: 15px;
-  }
-
-  .paper-safe h3 {
-    font-size: 32px;
-  }
 }
 
-/* ===============================
-   Mobile
-================================ */
 @media (max-width: 480px) {
-  body {
-    padding: 40px 0;
-  }
-
-  body::before {
-    background-attachment: scroll;
-  }
-
   .portfolio {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    padding: 28px 18px 40px;
-    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding: 24px 18px 40px;
   }
 
   .left {
     align-items: center;
+    gap: 40px;
   }
 
   .photo-frame {
     width: 72%;
+    transform: rotate(-1deg);
   }
 
   .paper-card {
-    width: 82%;
-    aspect-ratio: 2 / 3;
-  }
-
-  .paper-safe {
-    width: 76%;
-    font-size: 13px;
-  }
-
-  .paper-safe h3 {
-    font-size: 26px;
-  }
-
-  header h1,
-  header .name {
-    text-align: center;
+    width: min(410px, 100%);
+    aspect-ratio: 410 / 556;
   }
 
   header h1 {
-    font-size: 52px;
+    font-size: 44px;
   }
 
   header .name {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .block h2 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .block p {
-    font-size: 18px;
+    font-size: 17px;
+    line-height: 2;
   }
 
   .contact {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
