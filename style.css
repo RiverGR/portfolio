@@ -152,7 +152,7 @@ body::before {
 
 /* 메인 타이틀 */
 header h1 {
-  color: #896557;
+  color: #a07665;
   font-size: 70px;
   letter-spacing: 0.04em;
 }
@@ -170,7 +170,7 @@ header .name {
 }
 
 .block h2 {
-  color: #896557;
+  color: #a07665;
   font-size: 40px;
   letter-spacing: 0.04em;
 }
