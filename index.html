@@ -4,26 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-
-    <!-- Font -->
     <link
       href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <!-- 
+      전체 포트폴리오 컨테이너
+      - 데스크톱/태블릿: 좌측(시각 요소) + 우측(텍스트) 2열 구조
+      - 모바일: 세로 1열 구조
+    -->
     <main class="portfolio">
-      <!-- ================= LEFT ================= -->
+      <!-- ===============================
+           LEFT 영역 : 시각적 요소
+           - 프로필 사진(폴라로이드)
+           - 찢어진 종이 카드
+      =============================== -->
       <section class="left">
-        <!-- Photo -->
+        <!-- 
+          프로필 사진 영역
+          - 폴라로이드 프레임 + 인물 사진을 CSS에서 합성
+          - 회전, 비율, 위치는 전부 CSS에서 제어
+        -->
         <div class="photo-frame" aria-label="profile image"></div>
 
-        <!-- Torn Paper -->
+        <!-- 
+          찢어진 종이 카드
+          - 종이 이미지는 CSS 배경(::before)
+          - 실제 텍스트는 paper-safe 내부에 배치
+        -->
         <div class="paper-card">
+          <!-- 
+            종이 안의 안전 영역
+            - 모든 텍스트는 이 영역 안에만 들어감
+            - 종이 정중앙 기준으로 정렬
+          -->
           <div class="paper-safe">
+            <!-- Information 섹션 -->
             <section class="paper-section">
               <h3>Information</h3>
               <ul>
@@ -34,8 +54,14 @@
               </ul>
             </section>
 
+            <!-- Skills 섹션 -->
             <section class="paper-section">
               <h3>Skills</h3>
+              <!-- 
+                cols 클래스
+                - CSS에서 2컬럼 리스트로 처리
+                - 종이 가로 폭을 더 활용하기 위함
+              -->
               <ul class="cols">
                 <li>HTML5</li>
                 <li>CSS</li>
@@ -45,6 +71,7 @@
               </ul>
             </section>
 
+            <!-- Tools 섹션 -->
             <section class="paper-section">
               <h3>Tools</h3>
               <ul class="cols">
@@ -58,15 +85,22 @@
         </div>
       </section>
 
-      <!-- ================= RIGHT ================= -->
+      <!-- ===============================
+           RIGHT 영역 : 텍스트 정보
+           - 자기소개
+           - 이력
+           - 강점
+           - 마인드셋
+           - 연락처
+      =============================== -->
       <section class="right">
-        <!-- Header -->
+        <!-- 상단 타이틀 영역 -->
         <header class="hero">
           <h1>Portfolio</h1>
           <p class="name">Lee Ga Ram</p>
         </header>
 
-        <!-- Education -->
+        <!-- 학력 정보 -->
         <section class="block">
           <h2>Education</h2>
           <p>
@@ -79,7 +113,7 @@
           </p>
         </section>
 
-        <!-- Strengths -->
+        <!-- 개인 강점 -->
         <section class="block">
           <h2>Strengths</h2>
           <p>
@@ -96,7 +130,7 @@
           </p>
         </section>
 
-        <!-- Mindset -->
+        <!-- 개발 마인드 -->
         <section class="block">
           <h2>Mindset</h2>
           <p>개발은 항상 정확하게 가능하다면 신속하게 합니다.</p>
@@ -105,11 +139,10 @@
           <p>꾸준한 학습으로 더 효율적인 방법을 찾습니다.</p>
         </section>
 
-        <!-- Contact -->
+        <!-- 연락처 정보 -->
         <footer class="contact">
           <p>📞 010-1234-1234</p>
-          <p>✉️ myfm5u@gmail.com</p>
-          <p>🔗 github.com/RiverGR</p>
+          <p>✉</p>
         </footer>
       </section>
     </main>
