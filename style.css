@@ -32,9 +32,8 @@ body::before {
 .portfolio {
   width: min(1400px, 92vw); /* 최대 폭 제한 */
   min-height: 1194px;
-
   display: grid;
-  grid-template-columns: 420px 1fr; /* 좌: 시각 요소 / 우: 텍스트 */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 120px;
 
   padding: 64px 72px;
@@ -45,43 +44,20 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 48px;
+  max-width: 430px;
 }
 
 /* 폴라로이드 사진 컨테이너 */
 .photo-frame {
   position: relative;
+  width: 110%;
   aspect-ratio: 3 / 4;
   transform: rotate(-2deg);
-  background: url("polaroid.png") center / contain no-repeat;
-}
-
-/* 폴라로이드 프레임 */
-/* .photo-frame::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* background: url("polaroid.png") center / contain no-repeat;
-  z-index: 2;
-  pointer-events: none;
-} */
-
-/* 사진 (프레임 안쪽) */
-.photo-frame::after {
-  content: "";
-  position: absolute;
-  width: 333px;
-  height: 324px;
-  top: 85px;
-  left: 40px;
-  object-fit: cover;
-  background: url("GR.jpg") center / cover no-repeat;
-  transform: rotate(-8.1deg);
-  z-index: 3;
+  background: url("GR.png") center / contain no-repeat;
 }
 
 /* 찢어진 종이 카드 컨테이너 */
 .paper-card {
-  /* width: 440px;  */
   width: 500px;
   min-height: 600px;
   position: relative;
@@ -164,6 +140,10 @@ header h1 {
 /* 이름 텍스트 */
 header .name {
   font-size: 36px;
+  position: relative;
+  display: inline-block;
+
+  transition: color 0.35s ease, letter-spacing 0.35s ease;
 }
 
 /* 텍스트 블록 */
@@ -224,15 +204,7 @@ header .name {
   }
 
   .photo-frame {
-    width: 72%;
-  }
-
-  .photo-frame::after {
-    width: 206px;
-    height: 200px;
-    top: 54px;
-    left: 24px;
-    object-fit: cover;
+    width: 100%;
   }
 
   .paper-card {
@@ -260,4 +232,137 @@ header .name {
   .contact {
     font-size: 16px;
   }
+}
+/* 폴라로이드 사진 인터랙션 */
+.photo-frame {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+}
+
+.photo-frame:hover {
+  transform: rotate(0deg) scale(1.025);
+  filter: contrast(1.06) brightness(1.03);
+}
+
+/* 메인 타이틀 & 이름 */
+header h1 {
+  transition: color 0.3s ease, letter-spacing 0.3s ease, opacity 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+header h1:hover {
+  color: #c89b86;
+  letter-spacing: 0.06em;
+  opacity: 0.95;
+  text-shadow: 0 0 8px rgba(200, 155, 134, 0.35);
+}
+
+header .name {
+  position: relative;
+  display: inline-block;
+  transition: color 0.35s ease, letter-spacing 0.35s ease;
+}
+
+header .name:hover {
+  color: #d1a896;
+  letter-spacing: 0.12em;
+}
+
+header .name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1.5px;
+  background: rgba(209, 168, 150, 0.8);
+  transition: width 0.4s ease;
+}
+
+header .name:hover::after {
+  width: 100%;
+}
+
+/* 섹션 타이틀 */
+.block h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.block h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #a07665;
+  transition: width 0.35s ease;
+}
+
+.block h2:hover::after {
+  width: 100%;
+}
+
+/* 텍스트 블록 집중 효과 */
+.block {
+  transition: opacity 0.3s ease;
+}
+
+.block:hover {
+  opacity: 0.95;
+}
+
+.block p {
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.block:hover p {
+  color: #9f8473;
+}
+
+/* 종이 카드 안 텍스트만 인터랙션 */
+.paper-section h3 {
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
+}
+
+.paper-section h3:hover {
+  color: #c89b86;
+  letter-spacing: 0.04em;
+}
+
+.paper-section li {
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
+}
+
+.paper-section li:hover {
+  color: #d1a896;
+  letter-spacing: 0.04em;
+}
+
+/* 포트폴리오 컨테이너 미세한 깊이감 */
+.portfolio {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02),
+    rgba(0, 0, 0, 0.02)
+  );
+}
+
+/* hover 없는 환경 대응 */
+@media (hover: none) {
+  .photo-frame,
+  header h1,
+  header .name,
+  .block,
+  .block p,
+  .paper-section h3,
+  .paper-section li {
+    transition: none;
+  }
+}
+
+/* 접근성 */
+:focus-visible {
+  outline: 2px dashed #a07665;
+  outline-offset: 6px;
 }
