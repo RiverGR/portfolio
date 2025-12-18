@@ -77,8 +77,8 @@ HTML과 CSS만을 사용해
 
 ## 📌 Contact
 
-- 📧 Email : your@email.com  
-- 💼 GitHub : https://github.com/yourname  
+- 📧 Email : myfm5u@gmail.com
+- 💼 GitHub : https://github.com/RiverGR
 
 ---
 
