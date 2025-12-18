@@ -1,15 +1,11 @@
-/* ===============================
-   RESET
-================================ */
+/* 기본 초기화 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===============================
-   BODY
-================================ */
+/* 전체 페이지 기본 설정 */
 body {
   font-family: "Nanum Brush Script", cursive;
   letter-spacing: 0.03em;
@@ -25,6 +21,7 @@ body {
   background: #000;
 }
 
+/* 페이지 전체 배경 이미지 */
 body::before {
   content: "";
   position: fixed;
@@ -34,9 +31,7 @@ body::before {
   z-index: -1;
 }
 
-/* ===============================
-   LAYOUT (0 ~ 900px 기본)
-================================ */
+/* 기본 레이아웃 (모바일 ~ 태블릿 공통) */
 .portfolio {
   width: min(1400px, 92vw);
   min-height: 1194px;
@@ -53,9 +48,7 @@ body::before {
   );
 }
 
-/* ===============================
-   LEFT
-================================ */
+/* 좌측 영역 */
 .left {
   display: flex;
   flex-direction: column;
@@ -63,13 +56,16 @@ body::before {
   gap: 48px;
 }
 
+/* 폴라로이드 사진 */
 .photo-frame {
   position: relative;
   width: min(380px, 100%);
   max-height: 500px;
   aspect-ratio: 3 / 4;
+
   transform: rotate(-2deg);
   background: url("/portfolio/assets/image/GR.png") center / contain no-repeat;
+
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
 }
 
@@ -78,19 +74,19 @@ body::before {
   filter: contrast(1.06) brightness(1.03);
 }
 
-/* ===============================
-   PAPER CARD
-================================ */
+/* 찢어진 종이 카드 */
 .paper-card {
   position: relative;
   width: min(440px, 100%);
-  aspect-ratio: 410 / 556;
   min-height: 560px;
+  aspect-ratio: 410 / 556;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* 종이 배경 이미지 */
 .paper-card::before {
   content: "";
   position: absolute;
@@ -99,6 +95,7 @@ body::before {
     no-repeat;
 }
 
+/* 종이 위 장식 이미지(강아지) */
 .paper-deco {
   position: absolute;
   top: 18px;
@@ -111,9 +108,7 @@ body::before {
   pointer-events: none;
 }
 
-/* ===============================
-   PAPER CONTENT
-================================ */
+/* 종이 안쪽 콘텐츠 영역 */
 .paper-safe {
   position: relative;
   width: 80%;
@@ -122,12 +117,14 @@ body::before {
   gap: clamp(10px, 1.8vh, 20px);
 }
 
+/* 종이 카드 내부 섹션 */
 .paper-section {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
+/* 종이 카드 섹션 제목 */
 .paper-section h3 {
   font-size: 34px;
   line-height: 1.2;
@@ -140,6 +137,7 @@ body::before {
   letter-spacing: 0.04em;
 }
 
+/* 종이 카드 리스트 */
 .paper-section ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -147,6 +145,7 @@ body::before {
   padding-left: 20px;
 }
 
+/* 첫 번째 섹션은 단일 컬럼 */
 .paper-section:first-child ul {
   display: block;
 }
@@ -162,22 +161,19 @@ body::before {
   letter-spacing: 0.04em;
 }
 
-/* ===============================
-   RIGHT
-================================ */
+/* 우측 텍스트 영역 */
 .right {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-/* ===============================
-   HEADER
-================================ */
+/* 상단 타이틀 */
 header h1 {
   color: #a07665;
   font-size: 48px;
   letter-spacing: 0.04em;
+
   transition: color 0.3s ease, letter-spacing 0.3s ease, opacity 0.3s ease,
     text-shadow 0.3s ease;
 }
@@ -189,6 +185,7 @@ header h1:hover {
   text-shadow: 0 0 8px rgba(200, 155, 134, 0.35);
 }
 
+/* 이름 텍스트 */
 header .name {
   font-size: 26px;
   position: relative;
@@ -216,15 +213,14 @@ header .name:hover::after {
   width: 100%;
 }
 
-/* ===============================
-   BLOCK
-================================ */
+/* 우측 텍스트 블록 */
 .block {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+/* 블록 제목 */
 .block h2 {
   position: relative;
   color: #a07665;
@@ -247,25 +243,7 @@ header .name:hover::after {
   width: 100%;
 }
 
-/* 섹션 아이콘 */
-.block h2::before {
-  margin-right: 8px;
-  font-size: 0.9em;
-  opacity: 0.85;
-  content: "📚";
-}
-
-.block:nth-of-type(2) h2::before {
-  content: "💪";
-}
-
-.block:nth-of-type(3) h2::before {
-  content: "🧠";
-}
-
-/* ===============================
-   BLOCK TEXT
-================================ */
+/* 블록 본문 텍스트 */
 .block p {
   position: relative;
   padding-left: 22px;
@@ -275,6 +253,7 @@ header .name:hover::after {
   max-width: 520px;
 }
 
+/* 문단 앞 장식 기호 */
 .block p::before {
   content: "✦";
   position: absolute;
@@ -292,49 +271,45 @@ header .name:hover::after {
   color: #a07665;
 }
 
-/* ===============================
-   EMPHASIS (span.em)
-================================ */
+/* 강조 텍스트(span) */
 .em {
   position: relative;
   color: #a07665;
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
 }
 
+/* 강조 하이라이트 */
 .em::after {
   content: "";
   position: absolute;
   left: -3px;
   right: -3px;
   bottom: 0.2em;
+
   height: 6px;
   background: rgba(200, 155, 134, 0.8);
   transform: rotate(-1.5deg);
   opacity: 0;
   z-index: -1;
+
   transition: opacity 0.25s ease;
 }
 
+/* 문단 hover 시 강조 표시 */
 .block p:hover .em,
 .block p:hover .em::after {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* ===============================
-   CONTACT
-================================ */
+/* 연락처 영역 */
 .contact {
   margin-top: auto;
   font-size: 18px;
   line-height: 1.8;
 }
 
-/* ===============================
-   DESKTOP (hover 가능)
-================================ */
+/* 데스크톱에서만 적용되는 hover 인터랙션 */
 @media (hover: hover) and (min-width: 901px) {
   .paper-deco {
     opacity: 0;
@@ -348,9 +323,7 @@ header .name:hover::after {
   }
 }
 
-/* ===============================
-   MOBILE / TABLET
-================================ */
+/* 터치 기반 기기(모바일/태블릿) */
 @media (hover: none) {
   * {
     transition: none !important;
@@ -368,9 +341,7 @@ header .name:hover::after {
   }
 }
 
-/* ===============================
-   MOBILE (≤480px)
-================================ */
+/* 모바일 전용 */
 @media (max-width: 480px) {
   .portfolio {
     padding: 24px 16px 40px;
@@ -397,11 +368,13 @@ header .name:hover::after {
   .contact {
     font-size: 15px;
   }
+
+  .paper-deco {
+    display: none;
+  }
 }
 
-/* ===============================
-   DESKTOP (≥901px)
-================================ */
+/* 데스크톱 레이아웃 */
 @media (min-width: 901px) {
   .portfolio {
     display: grid;
@@ -450,15 +423,7 @@ header .name:hover::after {
   }
 }
 
-/* ===============================
-   모바일에서는 강아지 데코 숨김
-================================ */
-@media (max-width: 480px) {
-  .paper-deco {
-    display: none;
-  }
-}
-
+/* 태블릿 크기 보정 */
 @media (max-width: 900px) {
   .photo-frame {
     width: min(320px, 100%);
